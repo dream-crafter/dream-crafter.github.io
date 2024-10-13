@@ -13,7 +13,7 @@ body {
     margin-bottom: 5px;
 }
 
-.dnerf {
+.dreamcrafterTitle {
   font-variant: small-caps;
 }
 
@@ -24,7 +24,7 @@ body {
 }
 
 .teaser {
-  font-family: 'Google Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif;
 }
 
 
@@ -48,11 +48,11 @@ body {
 }
 
 .publication-title {
-    font-family: 'Google Sans', sans-serif;
+    font-family: 'Varela Round', sans-serif;
 }
 
 .publication-authors {
-    font-family: 'Google Sans', sans-serif;
+    font-family: 'Varela Round', sans-serif;
 }
 
 .publication-venue {
@@ -97,6 +97,10 @@ body {
 
     overflow: hidden;
     border-radius: 10px !important;
+}
+
+.teaser-video {
+  border-radius: 10px !important;
 }
 
 .publication-video iframe {

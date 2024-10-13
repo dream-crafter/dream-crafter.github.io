@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
-  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+        content="VR World builder and editor for 3DGS to edit 3D scenes.">
+  <meta name="keywords" content="Dreamcrafter,Gaussian Splatting, NeRF, Generative AI, ">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nerfies: Deformable Neural Radiance Fields</title>
+  <title>Dreamcrafter: Immersive Editing of 3D Radiance Fields Through Flexible, Generative Inputs and Outputs</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <!--
   <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -19,11 +19,13 @@
 
     gtag('js', new Date());
 
-    gtag('config', 'G-PYVRSFMDRL');
+    gtag('config', 'G-includehere');
   </script>
+  -->
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Castoro"
         rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap">
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
@@ -32,7 +34,7 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
+  <link rel="icon" href="./static/images/dizzy_flat.svg">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -42,85 +44,47 @@
 </head>
 <body>
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://keunhong.com">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://hypernerf.github.io">
-            HyperNeRF
-          </a>
-          <a class="navbar-item" href="https://nerfies.github.io">
-            Nerfies
-          </a>
-          <a class="navbar-item" href="https://latentfusion.github.io">
-            LatentFusion
-          </a>
-          <a class="navbar-item" href="https://photoshape.github.io">
-            PhotoShape
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</nav>
-
 
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Nerfies: Deformable Neural Radiance Fields</h1>
+          <h1 class="title is-2 publication-title">Dreamcrafter</h1>
+          <h2 class="title is-5 publication-title">Immersive Editing of 3D Radiance Fields Through Flexible, Generative Inputs and Outputs</h2>
+
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://keunhong.com">Keunhong Park</a><sup>1</sup>,</span>
+              <a href="https://cvachha.github.io">Cyrus Vachha</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://utkarshsinha.com">Utkarsh Sinha</a><sup>2</sup>,</span>
+              <a href="https://yixiaokang.editorx.io/site">Yixiao Kang</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://jonbarron.info">Jonathan T. Barron</a><sup>2</sup>,
+              <a href="https://www.zachdive.com/">Zachary Dive</a><sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="http://sofienbouaziz.com">Sofien Bouaziz</a><sup>2</sup>,
+              <a href="https://www.linkedin.com/in/ashchid">Ashwat Chidambaram</a><sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="https://www.danbgoldman.com">Dan B Goldman</a><sup>2</sup>,
+              <a href="https://www.anikgupta.me/">Anik Gupta</a><sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="https://homes.cs.washington.edu/~seitz/">Steven M. Seitz</a><sup>1,2</sup>,
+              <a href="https://eunicemjun.com/">Eunice Jun</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              <a href="http://www.ricardomartinbrualla.com">Ricardo Martin-Brualla</a><sup>2</sup>
+              <a href="https://people.eecs.berkeley.edu/~bjoern/">Björn Hartmann</a><sup>1</sup>
             </span>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>University of Washington,</span>
-            <span class="author-block"><sup>2</sup>Google Research</span>
+            <span class="author-block"><sup>1</sup>University of California, Berkeley</span>
+            <span class="author-block"><sup>2</sup>University of California, Los Angeles</span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2011.12948"
+                <a href="./static/pdf/dreamcrafter_preprint_v1.pdf"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -129,17 +93,17 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2011.12948"
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
                   </span>
-                  <span>arXiv</span>
+                  <span>arXiv (Coming Soon)</span>
                 </a>
               </span>
               <!-- Video Link. -->
               <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                <a href="https://www.youtube.com/watch?v=xhpbGu7iq6w"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-youtube"></i>
@@ -147,27 +111,17 @@
                   <span>Video</span>
                 </a>
               </span>
-              <!-- Code Link. -->
+              <!-- Poster -->
               <span class="link-block">
-                <a href="https://github.com/google/nerfies"
+                <a href="./static/pdf/Dreamcrafter_UIST_poster.pdf"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <i class="fab fa-github"></i>
+                      <i class="fas fa-file-pdf"></i>
                   </span>
-                  <span>Code</span>
-                  </a>
+                  <span>Poster</span>
+                </a>
               </span>
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <a href="https://github.com/google/nerfies/releases/tag/0.1"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
-                  </a>
-            </div>
-
+        
           </div>
         </div>
       </div>
@@ -175,30 +129,28 @@
   </div>
 </section>
 
-<section class="hero teaser">
+<section class="hero teaser"> <!--for now put video preview-->
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
+      <video class="teaser-video" id="teaser" autoplay muted loop controls playsinline height="100%" >
+        <source src="./static/videos/uist_video_preview_dreamcrafer.mp4"
                 type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-        free-viewpoint
-        portraits.
+        <span class="dreamcrafterTitle">Dreamcrafter</span> enables editing of Radiance Field scenes with Generative AI models in an immersive spatial interface.
       </h2>
     </div>
   </div>
 </section>
 
-
+<!--
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-steve">
           <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
+            <source src="./static/videos/shiba.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -248,7 +200,7 @@
     </div>
   </div>
 </section>
-
+-->
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -258,31 +210,18 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
+            We present an immersive VR editor for generating and editing 3D gaussian splatting scenes and a workflow for composing scenes for generative images and videos.
           </p>
           <p>
-            Our approach augments neural radiance fields
-            (NeRF) by optimizing an
-            additional continuous volumetric deformation field that warps each observed point into a
-            canonical 5D NeRF.
-            We observe that these NeRF-like deformation fields are prone to local minima, and
-            propose a coarse-to-fine optimization method for coordinate-based models that allows for
-            more robust optimization.
-            By adapting principles from geometry processing and physical simulation to NeRF-like
-            models, we propose an elastic regularization of the deformation field that further
-            improves robustness.
-          </p>
-          <p>
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
+            Authoring 3D scenes is a central task for spatial computing applications. Competing visions for lowering existing barriers are (1)
+            focus on immersive, direct manipulation of 3D content; or (2) leverage AI techniques that capture real scenes (3D Radiance Fields
+            such as, NeRFs, 3D Gaussian Splatting) and modify them at a higher level of abstraction, at the cost of high latency. We unify the
+            complementary strengths of these approaches and investigate how to integrate generative AI advances into real-time, immersive 3D
+            Radiance Field editing. We introduce <span class="dreamcrafterTitle">Dreamcrafter</span>, a VR-based 3D scene editing system that: (1) provides a modular architecture
+            to integrate generative AI algorithms; (2) combines different levels of control for creating objects, including natural language and
+            direct manipulation; and (3) introduces proxy representations that support interaction during high-latency operations. We contribute
+            empirical findings on control preferences and discuss how generative AI interfaces beyond text input enhance creativity in scene
+            editing and world building.
           </p>
         </div>
       </div>
@@ -294,8 +233,10 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Video</h2>
         <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <video poster="" id="fullVid" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/dreamcrafter_fullvid_v1_small.mp4"
+                    type="video/mp4">
+          </video>
         </div>
       </div>
     </div>
@@ -312,13 +253,13 @@
       <!-- Visual Effects. -->
       <div class="column">
         <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
+          <h2 class="title is-3">Edit</h2>
           <p>
-            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-            would be impossible without nerfies since it would require going through a wall.
+            Objects can be edited with voice and natural languge instructions. 
+            A 2D image preview and spatial annotation is shown after choosing a varient.
           </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
+          <video class="interpolation-panel" id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/edit_obj_vid_mini.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -327,15 +268,31 @@
 
       <!-- Matting. -->
       <div class="column">
-        <h2 class="title is-3">Matting</h2>
+        <h2 class="title is-3">Prompt</h2>
         <div class="columns is-centered">
           <div class="column content">
             <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
+              New objects can be generated via prompting. Users can select from 3 variant generations and a 2D image preview is shown.
             </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
+            <video class="interpolation-panel" id="matting-video" autoplay muted controls loop playsinline height="100%">
+              <source src="./static/videos/prompt_vid_mini.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Matting. -->
+      <div class="column">
+        <h2 class="title is-3">Sculpt</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              For finer control, new objects can be generated via sculpting. Users arrange basic primitives and use ControlNet to stylize into a realistic object.
+            </p>
+            <video class="interpolation-panel" id="matting-video" autoplay muted controls loop playsinline height="100%">
+              <source src="./static/videos/sculpt_vid_mini.mp4"
                       type="video/mp4">
             </video>
           </div>
@@ -343,52 +300,48 @@
         </div>
       </div>
     </div>
+    <p>
+    After editing, full fidelity objects are created and edited in an offline process, replacing the proxy representations in the scene.</p>
+    <br>
     <!--/ Matting. -->
 
     <!-- Animation. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
+        <h2 class="title is-3">✨ Magic Camera: Stage Scenes for Image/Video Generation</h2>
 
         <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
         <div class="content has-text-justified">
           <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
+           
+The Magic Camera allows users to position a virtual camera within a scene and apply stylization based on prompts using the ControlNet module, similar to rendering a frame in 3D editors. This stylized output can be used as input for image-to-video or image-to-3D models, enabling an iterative design process for creating and editing 3D scenes in Dreamcrafter. The system serves as a tool for spatial prompting, allowing users to create, stage, and stylize scenes using low fidelity objects in a VR interface, and explore high fidelity 3D scene generation through video diffusion models. Dreamcrafter's capabilities could further enhance generative AI design systems for 2D, video, and 3D outputs for world building.
           </p>
         </div>
         <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
+          <div class="column is-7 has-text-centered">
+            <img src="./static/images/magic_cam_figure_1.png"
                  class="interpolation-image"
                  alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
+            <p>Magic Camera Input and Output <br><em>"realistic apartment living room"</em></p>
           </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
-            </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
+         
+          <div class="column is-5 has-text-centered">
+            <video class="interpolation-panel" poster="" id="fullVid" autoplay muted loop playsinline height="100%">
+              <source src="./static/videos/magic_camera_vid_1.mp4"
+                      type="video/mp4">
+            </video>
+            <p class="is-bold">Image-to-Video Generation</p>
           </div>
         </div>
         <br/>
         <!--/ Interpolating. -->
 
         <!-- Re-rendering. -->
+         <!--
         <h3 class="title is-4">Re-rendering the input video</h3>
         <div class="content has-text-justified">
           <p>
-            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
+            Using <span class="dreamcrafterTitle">Nerfies</span>, you can re-render a video from a novel
             viewpoint such as a stabilized camera by playing back the training deformations.
           </p>
         </div>
@@ -403,6 +356,7 @@
                     type="video/mp4">
           </video>
         </div>
+        -->
         <!--/ Re-rendering. -->
 
       </div>
@@ -411,6 +365,7 @@
 
 
     <!-- Concurrent Work. -->
+   <!--
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Related Links</h2>
@@ -435,6 +390,7 @@
         </div>
       </div>
     </div>
+    -->
     <!--/ Concurrent Work. -->
 
   </div>
@@ -444,26 +400,35 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
-}</code></pre>
+    <p>If you find our work helpful, please consider citing our poster.</p>
+    <pre><code>@inproceedings{vachha2024dreamcrafter,
+      author = {Vachha, Cyrus and Kang, Yixiao and Dive, Zach and Chidambaram, Ashwat and Gupta, Anik and Jun, Eunice and Hartmann, Bjoern},
+      title = {Dreamcrafter: Immersive Editing of 3D Radiance Fields Through Flexible, Generative Inputs and Outputs},
+      year = {2024},
+      publisher = {Association for Computing Machinery},
+      url = {https://doi.org/10.1145/3672539.3686328},
+      doi = {10.1145/3672539.3686328},
+      booktitle = {Adjunct Proceedings of the 37th Annual ACM Symposium on User Interface Software and Technology},
+      series = {UIST Adjunct '24}
+      }</code></pre>
   </div>
 </section>
 
+  
 
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
+    <span class="link-block">
+      <a href="https://doi.org/10.1145/3672539.3686328"
+         class="external-link button is-normal is-rounded is-dark">
+        <span class="icon">
+            <i class="fas fa-file-pdf"></i>
+        </span>
+        <span>ACM DL</span>
       </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
+    </span>
+      
     </div>
     <div class="columns is-centered">
       <div class="column is-8">
@@ -472,13 +437,9 @@
             This website is licensed under a <a rel="license"
                                                 href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
+            This website is forked from the <a
+            href="https://nerfies.github.io">Nerfies</a> website and <a
+            href="https://github.com/nerfies/nerfies.github.io">source code</a>.
           </p>
         </div>
       </div>
