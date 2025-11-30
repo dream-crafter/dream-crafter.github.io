@@ -53,16 +53,16 @@
           <h1 class="title is-2 publication-title">Dreamcrafter</h1>
           <h2 class="title is-5 publication-title">Immersive Editing of 3D Radiance Fields Through Flexible, Generative Inputs and Outputs</h2>
 
-          <div class="is-size-5 publication-authors">
+          <div class="is-size-5 publication-authors" style="margin-top: 0;">
             <span class="author-block">
               <a href="https://cvachha.github.io">Cyrus Vachha</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://yixiaokang.editorx.io/site">Yixiao Kang</a><sup>1</sup>,</span>
+              <a href="https://www.linkedin.com/in/yixiao-kang">Yixiao Kang</a><sup>1</sup>,</span>
             <span class="author-block">
               <a href="https://www.zachdive.com/">Zachary Dive</a><sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="https://www.linkedin.com/in/ashchid">Ashwat Chidambaram</a><sup>1</sup>,
+              <a href="https://www.linkedin.com/in/ashwatc">Ashwat Chidambaram</a><sup>1</sup>,
             </span>
             <span class="author-block">
               <a href="https://www.anikgupta.me/">Anik Gupta</a><sup>1</sup>,
@@ -79,12 +79,17 @@
             <span class="author-block"><sup>1</sup>University of California, Berkeley</span>
             <span class="author-block"><sup>2</sup>University of California, Los Angeles</span>
           </div>
+          
+          <h3 class="title is-5 publication-title" style="margin-top: 1.2em; margin-bottom: 0;">CHI 2025</h3>
+        
 
           <div class="column has-text-centered">
-            <div class="publication-links">
+            <div class="publication-links" style="margin-top: 0; margin-bottom: 0;">
               <!-- PDF Link. -->
               <span class="link-block">
                 <a href="./static/pdf/dreamcrafter_arxiv_v1.pdf"
+                   target="_blank"
+                   rel="noopener noreferrer"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -105,7 +110,9 @@
               -->
               <!-- Video Link. -->
               <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=xhpbGu7iq6w"
+                <a href="https://www.youtube.com/watch?v=mM2z15NF0Ng"
+                   target="_blank"
+                   rel="noopener noreferrer"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-youtube"></i>
@@ -116,6 +123,8 @@
               <!-- ACM DL (Paper) -->
               <span class="link-block">
                 <a href="https://dl.acm.org/doi/10.1145/3706598.3714312"
+                   target="_blank"
+                   rel="noopener noreferrer"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -230,9 +239,7 @@
     </div>
     <!--/ Abstract. -->
     
-    <h2 class="subtitle has-text-centered">
-      Video presentation coming soon
-    </h2>
+    
     <!-- Paper video.
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -254,13 +261,11 @@
 
 <section class="section">
   <div class="container is-max-desktop ">
-
     <div class="columns is-centered">
-
       <!-- Visual Effects. -->
       <div class="column">
         <div class="content">
-          <h2 class="title is-3">Edit</h2>
+          <h2 class="title is-3 has-text-centered">📝 Edit</h2>
           <p>
             Objects can be edited with voice and natural languge instructions. 
             A 2D image preview and spatial annotation is shown after choosing a varient.
@@ -275,40 +280,39 @@
 
       <!-- Matting. -->
       <div class="column">
-        <h2 class="title is-3">Prompt</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              New objects can be generated via prompting. Users can select from 3 variant generations and a 2D image preview is shown.
-            </p>
-            <video class="interpolation-panel" id="matting-video" autoplay muted controls loop playsinline height="100%">
-              <source src="./static/videos/prompt_vid_mini.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-
+        <div class="content">
+          <h2 class="title is-3 has-text-centered">💬 Prompt</h2>
+          <p>
+            New objects can be generated via prompting. Users can select from 3 variant generations and a 2D image preview is shown.
+          </p>
+          <video class="interpolation-panel" id="matting-video" autoplay muted controls loop playsinline height="100%">
+            <source src="./static/videos/prompt_vid_mini.mp4"
+                    type="video/mp4">
+          </video>
         </div>
       </div>
 
       <!-- Matting. -->
       <div class="column">
-        <h2 class="title is-3">Sculpt</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              For finer control, new objects can be generated via sculpting. Users arrange basic primitives and use ControlNet to stylize into a realistic object.
-            </p>
-            <video class="interpolation-panel" id="matting-video" autoplay muted controls loop playsinline height="100%">
-              <source src="./static/videos/sculpt_vid_mini.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-
+        <div class="content">
+          <h2 class="title is-3 has-text-centered">🎨 Sculpt</h2>
+          <p>
+            For finer control, new objects can be generated via sculpting. Users arrange basic primitives and use ControlNet to stylize into a realistic object.
+          </p>
+          <video class="interpolation-panel" id="matting-video" autoplay muted controls loop playsinline height="100%">
+            <source src="./static/videos/sculpt_vid_mini.mp4"
+                    type="video/mp4">
+          </video>
         </div>
       </div>
     </div>
-    <p>
-    After editing, full fidelity objects are created and edited in an offline process, replacing the proxy representations in the scene.</p>
+    <div class="columns is-centered">
+      <div class="column content">
+        <p>
+          After editing, full fidelity objects are created and edited in an offline process, replacing the proxy representations in the scene.
+        </p>
+      </div>
+    </div>
     <br>
     <!--/ Matting. -->
 
@@ -321,23 +325,95 @@
         <div class="content has-text-justified">
           <p>
            
-The Magic Camera allows users to position a virtual camera within a scene and apply stylization based on prompts using the ControlNet module, similar to rendering a frame in 3D editors. This stylized output can be used as input for image-to-video or image-to-3D models, enabling an iterative design process for creating and editing 3D scenes in Dreamcrafter. The system serves as a tool for spatial prompting, allowing users to create, stage, and stylize scenes using low fidelity objects in a VR interface, and explore high fidelity 3D scene generation through video diffusion models. Dreamcrafter's capabilities could further enhance generative AI design systems for 2D, video, and 3D outputs for world building.
+The Magic Camera allows users to position a virtual camera within a scene and apply stylization based on prompts using the ControlNet module, analogous to rendering a frame in 3D editors. This stylized output can be used as input for image-to-video or image-to-3D models, enabling an iterative design process for creating and editing 3D scenes in Dreamcrafter. The system serves as a tool for spatial prompting, allowing users to create, stage, and stylize scenes using low fidelity objects in a VR interface, and explore high fidelity 3D scene generation through video diffusion models. Dreamcrafter's capabilities could further enhance generative AI design systems for 2D, video, and 3D outputs for world building.
           </p>
         </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-7 has-text-centered">
-            <img src="./static/images/magic_cam_figure_1.png"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Magic Camera Input and Output <br><em>"realistic apartment living room"</em></p>
+        
+        <!-- Tabbed Content -->
+        <div class="magic-camera-tabs">
+          <!-- Tab Content -->
+          <div class="tab-content">
+            <!-- Tab 1: Indoor Scene -->
+            <div class="tab-pane is-active" id="tab-indoor">
+              <div class="columns is-vcentered interpolation-panel">
+                <div class="column is-7 has-text-centered">
+                  <img src="./static/images/magic_cam_figure_livingroom.png"
+                       class="interpolation-image"
+                       alt="Magic Camera indoor scene example."/>
+                  <p><strong>Magic Camera Input and Output</strong> <br>Prompt: <em>"realistic apartment living room"</em></p>
+                </div>
+               
+                <div class="column is-5 has-text-centered">
+                  <video class="interpolation-panel" poster="" id="indoor-video" autoplay muted loop playsinline height="100%">
+                    <source src="./static/videos/magic_camera_vid_1.mp4"
+                            type="video/mp4">
+                  </video>
+                  <p><strong>Image-to-Video Generation</strong></p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Tab 2: Outdoor Scene -->
+            <div class="tab-pane" id="tab-indoor-2">
+              <div class="columns is-vcentered interpolation-panel">
+                <div class="column is-7 has-text-centered">
+                  <img src="./static/images/magic_cam_figure_party.png"
+                       class="interpolation-image"
+                       alt="Magic Camera outdoor scene example."/>
+                  <p><strong>Magic Camera Input and Output</strong> <br>Prompt: <em>"a holiday party in a hotel atrium, snowman, Christmas, gingerbread house"</em></p>
+                </div>
+               
+                <div class="column is-5 has-text-centered">
+                  <video class="interpolation-panel" poster="" id="outdoor-video" autoplay muted loop playsinline height="100%">
+                    <source src="./static/videos/luma_magiccam_christmasparty.mp4"
+                            type="video/mp4">
+                  </video>
+                  <p><strong>Image-to-Video Generation</strong></p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Tab 3: Indoor Scene 2 -->
+            <div class="tab-pane" id="tab-outdoor">
+              <div class="columns is-vcentered interpolation-panel">
+                <div class="column is-7 has-text-centered">
+                  <img src="./static/images/magic_cam_figure_outdoor.png"
+                       class="interpolation-image"
+                       alt="Magic Camera indoor scene 2 example."/>
+                  <p><strong>Magic Camera Input and Output</strong> <br>Prompt: <em>"realistic outdoor patio in university with cherry blossom
+                    tree, chairs, benches, plants"</em></p>
+                </div>
+               
+                <div class="column is-5 has-text-centered">
+                  <video class="interpolation-panel" poster="" id="indoor-2-video" autoplay muted loop playsinline height="100%">
+                    <source src="./static/videos/luma_magiccam_patiooptic.mp4"
+                            type="video/mp4">
+                  </video>
+                  <p><strong>Image-to-Video Generation</strong></p>
+                </div>
+              </div>
+            </div>
           </div>
-         
-          <div class="column is-5 has-text-centered">
-            <video class="interpolation-panel" poster="" id="fullVid" autoplay muted loop playsinline height="100%">
-              <source src="./static/videos/magic_camera_vid_1.mp4"
-                      type="video/mp4">
-            </video>
-            <p class="is-bold">Image-to-Video Generation</p>
+          
+          <!-- Tab Buttons -->
+          <div class="tabs is-centered" style="margin-top: 2rem;">
+            <ul>
+              <li class="is-active">
+                <a onclick="switchTab('tab-indoor', this)" class="tab-button">
+                  <span>Indoor Scene</span>
+                </a>
+              </li>
+              <li>
+                <a onclick="switchTab('tab-outdoor', this)" class="tab-button">
+                  <span>Outdoor Scene</span>
+                </a>
+              </li>
+              <li>
+                <a onclick="switchTab('tab-indoor-2', this)" class="tab-button">
+                  <span>Indoor Scene 2</span>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
         <br/>
@@ -369,6 +445,131 @@ The Magic Camera allows users to position a virtual camera within a scene and ap
       </div>
     </div>
     <!--/ Animation. -->
+
+    <!-- Design Goals. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Design Objectives</h2>
+        <div class="content has-text-justified">
+          <p>
+            Our design process was guided by four key principles that shaped Dreamcrafter's architecture and interaction model:
+          </p>
+        </div>
+        
+        <!-- Design Goal 1 -->
+        <div class="design-goal-item">
+          <div class="design-goal-header" onclick="toggleDesignGoal('goal1')">
+            <h3 class="title is-5 has-text-left">
+              <span class="design-goal-number">1.</span>
+              Focus on creating and editing radiance field objects in VR
+              <span class="design-goal-toggle" id="goal1-toggle">▼</span>
+            </h3>
+          </div>
+          <div class="design-goal-content" id="goal1-content">
+            <div class="columns is-vcentered">
+              <div class="column is-8">
+                <div class="content has-text-justified">
+                  <p>
+                    Dreamcrafter enables users to populate scenes with photorealistic radiance field objects or scenes by either modifying existing captures or generating entirely new objects.
+                  </p>
+                </div>
+              </div>
+              <div class="column is-4 has-text-centered">
+                <img src="./static/images/dg_1.png" 
+                     alt="VR radiance field editing" 
+                     class="design-goal-image"
+                     style="max-height: 200px; border-radius: 8px;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Design Goal 2 -->
+        <div class="design-goal-item">
+          <div class="design-goal-header" onclick="toggleDesignGoal('goal2')">
+            <h3 class="title is-5 has-text-left">
+              <span class="design-goal-number">2.</span>
+              Enable both direct manipulation and instruction-based editing
+              <span class="design-goal-toggle" id="goal2-toggle">▼</span>
+            </h3>
+          </div>
+          <div class="design-goal-content" id="goal2-content">
+            <div class="columns is-vcentered">
+              <div class="column is-8">
+                <div class="content has-text-justified">
+                  <p>
+                    The system combines low-level direct manipulation with high-level instruction-based editing, giving users flexibility in control. Fine-grained operations such as positioning or resizing can be performed directly in VR in addition to crafting the general shape of an object to guide generation, while larger stylistic or structural edits can be expressed through natural language prompts.
+                  </p>
+                </div>
+              </div>
+              <div class="column is-4 has-text-centered">
+                <img src="./static/images/dg_2.png" 
+                     alt="Direct manipulation and instruction-based editing" 
+                     class="design-goal-image"
+                     style="max-height: 200px; border-radius: 8px;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Design Goal 3 -->
+        <div class="design-goal-item">
+          <div class="design-goal-header" onclick="toggleDesignGoal('goal3')">
+            <h3 class="title is-5 has-text-left">
+              <span class="design-goal-number">3.</span>
+              Modular architecture to allow integration of future generative models
+              <span class="design-goal-toggle" id="goal3-toggle">▼</span>
+            </h3>
+          </div>
+          <div class="design-goal-content" id="goal3-content">
+            <div class="columns is-vcentered">
+              <div class="column is-8">
+                <div class="content has-text-justified">
+                  <p>
+                    Our system is designed with extensibility in mind, featuring a modular architecture that can accommodate new generative AI models for images, 2D/3D editing, 3D object/scene, and video generation.
+                  </p>
+                </div>
+              </div>
+              <div class="column is-4 has-text-centered">
+                <img src="./static/images/dg_3.png" 
+                     alt="Modular architecture for AI integration" 
+                     class="design-goal-image"
+                     style="max-height: 200px; border-radius: 8px;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Design Goal 4 -->
+        <div class="design-goal-item">
+          <div class="design-goal-header" onclick="toggleDesignGoal('goal4')">
+            <h3 class="title is-5 has-text-left">
+              <span class="design-goal-number">4.</span>
+              Preserve real-time interaction for high latency editing operations
+              <span class="design-goal-toggle" id="goal4-toggle">▼</span>
+            </h3>
+          </div>
+          <div class="design-goal-content" id="goal4-content">
+            <div class="columns is-vcentered">
+              <div class="column is-8">
+                <div class="content has-text-justified">
+                  <p>
+                    We maintain real-time responsive interactions through proxy representations and asynchronous processing, ensuring that high-latency AI operations don't interrupt the user's creative flow or break the immersive experience.
+                  </p>
+                </div>
+              </div>
+              <div class="column is-4 has-text-centered">
+                <img src="./static/images/dg_4.png" 
+                     alt="Real-time interaction with proxy representations" 
+                     class="design-goal-image"
+                     style="max-height: 200px; border-radius: 8px;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Design Goals. -->
 
 
     <!-- Concurrent Work. -->
@@ -404,11 +605,45 @@ The Magic Camera allows users to position a virtual camera within a scene and ap
 </section>
 
 
+<section class="section" style="padding-top: 1.5rem; padding-bottom: 1.5rem;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered" style="margin-bottom: 1.5rem;">Presentation Video</h2>
+        <div class="columns is-vcentered">
+          <div class="column is-6 is-offset-3 has-text-centered">
+            <div style="margin-bottom: 1rem; display: flex; justify-content: center;">
+              <a href="https://www.youtube.com/watch?v=mM2z15NF0Ng" 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 style="display: block; cursor: pointer;">
+                <img src="./static/images/dreamcrafter_thumbnail.png" 
+                     alt="Presentation Video Thumbnail"
+                     style="max-width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: block; transition: opacity 0.2s;">
+              </a>
+            </div>
+            <a href="https://www.youtube.com/watch?v=mM2z15NF0Ng" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="external-link button is-normal is-rounded is-dark">
+              <span class="icon">
+                <i class="fab fa-youtube"></i>
+              </span>
+              <span>View here</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
+  <div class="sectionBibTex container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <p>If you find our work helpful, please consider citing our paper.</p>
-    <pre><code>@inproceedings{vachha2025dreamcrafter,
+    <pre id="bibtex-citation"><code>@inproceedings{vachha2025dreamcrafter,
       author = {Vachha, Cyrus and Kang, Yixiao and Dive, Zach and Chidambaram, Ashwat and Gupta, Anik and Jun, Eunice and Hartmann, Bj\"{o}rn},
       title = {Dreamcrafter: Immersive Editing of 3D Radiance Fields Through Flexible, Generative Inputs and Outputs},
       year = {2025},
@@ -418,8 +653,58 @@ The Magic Camera allows users to position a virtual camera within a scene and ap
       booktitle = {Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems},
       series = {CHI '25}
       }</code></pre>
+    <div class="has-text-centered" style="margin-top: 0.7rem;">
+      <button id="copy-bibtex-btn" class="button is-small">Copy Citation</button>
+    </div>
   </div>
 </section>
+<script>
+document.getElementById('copy-bibtex-btn').onclick = function() {
+  var btn = document.getElementById('copy-bibtex-btn');
+  var bibtex = document.getElementById('bibtex-citation').innerText;
+  navigator.clipboard.writeText(bibtex);
+  btn.classList.add('clicked');
+  setTimeout(function() { btn.classList.remove('clicked'); }, 1200);
+};
+
+// Tab switching function for Magic Camera section
+function switchTab(tabId, buttonElement) {
+  // Hide all tab panes
+  var tabPanes = document.querySelectorAll('.tab-pane');
+  tabPanes.forEach(function(pane) {
+    pane.classList.remove('is-active');
+  });
+  
+  // Remove active class from all tab buttons
+  var tabButtons = document.querySelectorAll('.tab-button');
+  tabButtons.forEach(function(button) {
+    button.parentElement.classList.remove('is-active');
+  });
+  
+  // Show selected tab pane
+  document.getElementById(tabId).classList.add('is-active');
+  
+  // Add active class to clicked button
+  buttonElement.parentElement.classList.add('is-active');
+}
+
+// Design Goals toggle function
+function toggleDesignGoal(goalId) {
+  var goalItem = document.querySelector('#' + goalId + '-content').parentElement;
+  var content = document.getElementById(goalId + '-content');
+  var toggle = document.getElementById(goalId + '-toggle');
+  
+  if (goalItem.classList.contains('expanded')) {
+    // Collapse
+    goalItem.classList.remove('expanded');
+    toggle.innerHTML = '▼';
+  } else {
+    // Expand
+    goalItem.classList.add('expanded');
+    toggle.innerHTML = '▲';
+  }
+}
+</script>
 
   
 
@@ -427,14 +712,28 @@ The Magic Camera allows users to position a virtual camera within a scene and ap
   <div class="container">
     <div class="content has-text-centered">
     <span class="link-block">
-      <a href="./static/pdf/Dreamcrafter_UIST_poster.pdf"
+      <a href="https://dl.acm.org/doi/10.1145/3672539.3686328"
+         target="_blank"
+         rel="noopener noreferrer"
          class="external-link button is-normal is-rounded is-dark">
         <span class="icon">
             <i class="fas fa-file-pdf"></i>
         </span>
-        <span>Poster</span>
+        <span>Poster (UIST 2024)</span>
       </a>
     </span>
+    <span class="link-block">
+      <a href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/2024/EECS-2024-124.html"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="external-link button is-normal is-rounded is-dark">
+        <span class="icon">
+            <i class="fas fa-file-pdf"></i>
+        </span>
+        <span>Master's Thesis (2024)</span>
+      </a>
+    </span>
+    
       
     </div>
     <div class="columns is-centered">
