@@ -30,17 +30,25 @@
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/dreamcrafter_icon.svg">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+  
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdnjs.cloudflare.com/ajax/libs/three.js/0.178.0/three.module.js",
+        "@sparkjsdev/spark": "https://sparkjs.dev/releases/spark/0.1.10/spark.module.js"
+      }
+    }
+  </script>
 </head>
 <body>
 
@@ -148,7 +156,7 @@
                 type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        <span class="dreamcrafterTitle">Dreamcrafter</span> enables editing of Radiance Field scenes with Generative AI models in an immersive spatial interface.
+        <span class="dreamcrafterTitle">Dreamcrafter</span> enables editing of Radiance Field scenes with Generative AI models in an immersive VR spatial interface.
       </h2>
     </div>
   </div>
@@ -319,7 +327,7 @@
     <!-- Animation. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">✨ Magic Camera: Stage Scenes for Image/Video Generation</h2>
+        <h2 class="title is-3">✨ Magic Camera: Stage Scenes for Scene/Video Generation</h2>
 
         <!-- Interpolating. -->
         <div class="content has-text-justified">
@@ -344,11 +352,38 @@ The Magic Camera allows users to position a virtual camera within a scene and ap
                 </div>
                
                 <div class="column is-5 has-text-centered">
-                  <video class="interpolation-panel" poster="" id="indoor-video" autoplay muted loop playsinline height="100%">
-                    <source src="./static/videos/magic_camera_vid_1.mp4"
-                            type="video/mp4">
-                  </video>
-                  <p><strong>Image-to-Video Generation</strong></p>
+                  <!-- Nested tabs for video/splat viewer -->
+                  <div class="scene-viewer-tabs">
+                    <div class="scene-viewer-content">
+                      <div class="scene-viewer-pane is-active" id="indoor-video-pane">
+                        <video class="interpolation-panel" poster="" id="indoor-video" autoplay muted loop playsinline height="100%">
+                          <source src="./static/videos/magic_camera_vid_1.mp4"
+                                  type="video/mp4">
+                        </video>
+                      </div>
+                      <div class="scene-viewer-pane" id="indoor-splat-pane">
+                        <p class="is-size-7 has-text-grey" style="margin-bottom: 0.25rem;">Interactive Splat Viewer (hover)</p>
+                        <div class="interpolation-panel splat-viewer-container" id="indoor-splat-container" style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: rgba(248, 252, 255, 0.5);">
+                          <canvas id="indoor-splat-canvas" style="width: 100%; height: 100%; display: block;"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                    <p id="indoor-viewer-label"><strong>Image-to-Video Generation (Luma Ray)</strong></p>
+                    <div class="tabs is-small is-centered" style="margin-top: 0.5rem;">
+                      <ul>
+                        <li class="is-active">
+                          <a onclick="switchSceneViewer('indoor', 'video', this)" class="scene-viewer-tab">
+                            <span>Video</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a onclick="switchSceneViewer('indoor', 'splat', this)" class="scene-viewer-tab">
+                            <span>3D Scene</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -364,11 +399,38 @@ The Magic Camera allows users to position a virtual camera within a scene and ap
                 </div>
                
                 <div class="column is-5 has-text-centered">
-                  <video class="interpolation-panel" poster="" id="outdoor-video" autoplay muted loop playsinline height="100%">
-                    <source src="./static/videos/luma_magiccam_christmasparty.mp4"
-                            type="video/mp4">
-                  </video>
-                  <p><strong>Image-to-Video Generation</strong></p>
+                  <!-- Nested tabs for video/splat viewer -->
+                  <div class="scene-viewer-tabs">
+                    <div class="scene-viewer-content">
+                      <div class="scene-viewer-pane is-active" id="party-video-pane">
+                        <video class="interpolation-panel" poster="" id="outdoor-video" autoplay muted loop playsinline height="100%">
+                          <source src="./static/videos/luma_magiccam_christmasparty.mp4"
+                                  type="video/mp4">
+                        </video>
+                      </div>
+                      <div class="scene-viewer-pane" id="party-splat-pane">
+                        <p class="is-size-7 has-text-grey" style="margin-bottom: 0.25rem;">Interactive Splat Viewer (hover)</p>
+                        <div class="interpolation-panel splat-viewer-container" id="party-splat-container" style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: rgba(248, 252, 255, 0.5);">
+                          <canvas id="party-splat-canvas" style="width: 100%; height: 100%; display: block;"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                    <p id="party-viewer-label"><strong>Image-to-Video Generation (Luma Ray)</strong></p>
+                    <div class="tabs is-small is-centered" style="margin-top: 0.5rem;">
+                      <ul>
+                        <li class="is-active">
+                          <a onclick="switchSceneViewer('party', 'video', this)" class="scene-viewer-tab">
+                            <span>Video</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a onclick="switchSceneViewer('party', 'splat', this)" class="scene-viewer-tab">
+                            <span>3D Scene</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -385,11 +447,38 @@ The Magic Camera allows users to position a virtual camera within a scene and ap
                 </div>
                
                 <div class="column is-5 has-text-centered">
-                  <video class="interpolation-panel" poster="" id="indoor-2-video" autoplay muted loop playsinline height="100%">
-                    <source src="./static/videos/luma_magiccam_patiooptic.mp4"
-                            type="video/mp4">
-                  </video>
-                  <p><strong>Image-to-Video Generation</strong></p>
+                  <!-- Nested tabs for video/splat viewer -->
+                  <div class="scene-viewer-tabs">
+                    <div class="scene-viewer-content">
+                      <div class="scene-viewer-pane is-active" id="patio-video-pane">
+                        <video class="interpolation-panel" poster="" id="indoor-2-video" autoplay muted loop playsinline height="100%">
+                          <source src="./static/videos/luma_magiccam_patiooptic.mp4"
+                                  type="video/mp4">
+                        </video>
+                      </div>
+                      <div class="scene-viewer-pane" id="patio-splat-pane">
+                        <p class="is-size-7 has-text-grey" style="margin-bottom: 0.25rem;">Interactive Splat Viewer (hover)</p>
+                        <div class="interpolation-panel splat-viewer-container" id="patio-splat-container" style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: rgba(248, 252, 255, 0.5);">
+                          <canvas id="patio-splat-canvas" style="width: 100%; height: 100%; display: block;"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                    <p id="patio-viewer-label"><strong>Image-to-Video Generation (Luma Ray)</strong></p>
+                    <div class="tabs is-small is-centered" style="margin-top: 0.5rem;">
+                      <ul>
+                        <li class="is-active">
+                          <a onclick="switchSceneViewer('patio', 'video', this)" class="scene-viewer-tab">
+                            <span>Video</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a onclick="switchSceneViewer('patio', 'splat', this)" class="scene-viewer-tab">
+                            <span>3D Scene</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -688,6 +777,45 @@ function switchTab(tabId, buttonElement) {
   buttonElement.parentElement.classList.add('is-active');
 }
 
+// Scene viewer tab switching function (for video/splat tabs within each scene)
+function switchSceneViewer(sceneId, viewType, buttonElement) {
+  // Hide all panes for this scene
+  var videoPane = document.getElementById(sceneId + '-video-pane');
+  var splatPane = document.getElementById(sceneId + '-splat-pane');
+  
+  if (videoPane) videoPane.classList.remove('is-active');
+  if (splatPane) splatPane.classList.remove('is-active');
+  
+  // Remove active class from all tabs in this scene viewer
+  var sceneViewerTabs = buttonElement.closest('.scene-viewer-tabs');
+  if (sceneViewerTabs) {
+    var tabs = sceneViewerTabs.querySelectorAll('.scene-viewer-tab');
+    tabs.forEach(function(tab) {
+      tab.parentElement.classList.remove('is-active');
+    });
+  }
+  
+  // Show selected pane
+  if (viewType === 'video' && videoPane) {
+    videoPane.classList.add('is-active');
+  } else if (viewType === 'splat' && splatPane) {
+    splatPane.classList.add('is-active');
+  }
+  
+  // Update the label text based on view type
+  var labelElement = document.getElementById(sceneId + '-viewer-label');
+  if (labelElement) {
+    if (viewType === 'video') {
+      labelElement.innerHTML = '<strong>Image-to-Video Generation (Luma Ray)</strong>';
+    } else if (viewType === 'splat') {
+      labelElement.innerHTML = '<strong>Image-to 3DGS Scene (World Labs Marble)</strong>';
+    }
+  }
+  
+  // Add active class to clicked button
+  buttonElement.parentElement.classList.add('is-active');
+}
+
 // Design Goals toggle function
 function toggleDesignGoal(goalId) {
   var goalItem = document.querySelector('#' + goalId + '-content').parentElement;
@@ -704,6 +832,271 @@ function toggleDesignGoal(goalId) {
     toggle.innerHTML = '▲';
   }
 }
+</script>
+
+<script type="module">
+  import * as THREE from "three";
+  import { SplatMesh } from "@sparkjsdev/spark";
+
+  // Store viewer instances
+  const splatViewers = {
+    indoor: null,
+    party: null,
+    patio: null
+  };
+
+    // Configuration for scene splats
+    const sceneSplatUrls = {
+      indoor: "./static/splats/wl_living_room.splat",
+      party: "./static/splats/wl_holiday.splat",
+      patio: "./static/splats/wl_patio.splat"
+    };
+
+    // Function to initialize a splat viewer
+    function initSplatViewer(sceneId, canvasId, containerId) {
+      if (splatViewers[sceneId]) {
+        return; // Already initialized
+      }
+
+      const canvas = document.getElementById(canvasId);
+      const container = document.getElementById(containerId);
+      
+      if (!canvas || !container) {
+        return;
+      }
+
+      const scene = new THREE.Scene();
+      const width = container.clientWidth;
+      const height = container.clientHeight;
+      const camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 1000);
+      const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+      renderer.setSize(width, height);
+
+      // Get splat URL based on sceneId
+      const splatURL = sceneSplatUrls[sceneId] || sceneSplatUrls.indoor;
+      const splatMesh = new SplatMesh({ url: splatURL });
+      splatMesh.quaternion.set(1, 0, 0, 0);
+    splatMesh.position.set(0, 0, 0);
+    scene.add(splatMesh);
+
+    // Camera orbit controls
+    let cameraDistance = 2.5;
+    let cameraAngleX = 1.5; // Vertical angle (phi)
+    let cameraAngleY = 0; // Horizontal angle (theta)
+    let targetAngleX = 1.5;
+    let targetAngleY = 0;
+    let isHovering = false;
+    let autoRotationSpeed = 0.001; // Subtle auto-rotation speed
+
+    // Update camera position based on angles
+    function updateCameraPosition(angleX, angleY) {
+      const x = cameraDistance * Math.sin(angleX) * Math.cos(angleY);
+      const y = cameraDistance * Math.cos(angleX);
+      const z = cameraDistance * Math.sin(angleX) * Math.sin(angleY);
+      camera.position.set(x, y, z);
+      camera.lookAt(0, 0, 0);
+    }
+    updateCameraPosition(cameraAngleX, cameraAngleY);
+
+
+    // Handle container resize
+    const resizeObserver = new ResizeObserver(function(entries) {
+      for (let entry of entries) {
+        const newWidth = entry.contentRect.width;
+        const newHeight = entry.contentRect.height;
+        camera.aspect = newWidth / newHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(newWidth, newHeight);
+      }
+    });
+    resizeObserver.observe(container);
+
+    // Animation loop
+    let animationId = null;
+    let lastTime = 0;
+    
+    // Store viewer data with animation control
+    const viewerObj = {
+      scene: scene,
+      camera: camera,
+      renderer: renderer,
+      splatMesh: splatMesh,
+      animationId: null,
+      resizeObserver: resizeObserver,
+      canvas: canvas,
+      lastTime: 0,
+      cameraAngleX: cameraAngleX,
+      cameraAngleY: cameraAngleY,
+      targetAngleX: targetAngleX,
+      targetAngleY: targetAngleY,
+      isHovering: false,
+      autoRotationSpeed: autoRotationSpeed,
+      updateCameraPosition: function() {
+        updateCameraPosition(this.cameraAngleX, this.cameraAngleY);
+      },
+      startAnimation: function() {
+        if (this.animationId === null) {
+          this.lastTime = performance.now();
+          const self = this;
+          const loop = function(time) {
+            if (self.animationId !== null) {
+              self.animationId = requestAnimationFrame(loop);
+              
+              // Smooth interpolation for camera angles
+              const lerpFactor = 0.1;
+              self.cameraAngleX += (self.targetAngleX - self.cameraAngleX) * lerpFactor;
+              self.cameraAngleY += (self.targetAngleY - self.cameraAngleY) * lerpFactor;
+              
+              // Auto-rotation when not hovering
+              if (!self.isHovering) {
+                const now = performance.now() * 0.001;
+                self.targetAngleY = Math.sin(now * 0.8) * 0.4; // Oscillate horizontal angle
+                self.targetAngleX = 1.5 + Math.sin(now * 0.6) * 0.15; // Oscillate vertical angle
+                cameraDistance = 2.5 + Math.sin(now * 0.5) * 0.2; // Gentle depth oscillation
+              }
+              
+              self.updateCameraPosition();
+              
+              // Subtle rotation of the splat mesh itself
+              // self.splatMesh.rotation.y += 0.002;
+              
+              self.renderer.render(self.scene, self.camera);
+            }
+          };
+          this.animationId = requestAnimationFrame(loop);
+        }
+      },
+      stopAnimation: function() {
+        if (this.animationId !== null) {
+          cancelAnimationFrame(this.animationId);
+          this.animationId = null;
+        }
+      },
+      cleanup: function() {
+        this.stopAnimation();
+        this.resizeObserver.disconnect();
+      }
+    };
+    
+    // Mouse interaction handlers
+    canvas.addEventListener('mouseenter', function() {
+      viewerObj.isHovering = true;
+      canvas.style.cursor = 'grab';
+    });
+
+    canvas.addEventListener('mouseleave', function() {
+      viewerObj.isHovering = false;
+      canvas.style.cursor = 'default';
+      // Reset to auto-rotation target
+      viewerObj.targetAngleY = viewerObj.cameraAngleY;
+    });
+
+    canvas.addEventListener('mousemove', function(event) {
+      if (viewerObj.isHovering) {
+        const rect = canvas.getBoundingClientRect();
+        // Normalize mouse position to -1 to 1 range
+        const mouseX = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+        const mouseY = ((event.clientY - rect.top) / rect.height) * 2 - 1;
+        
+        // Map to camera angles (subtle orbit range)
+        viewerObj.targetAngleY = mouseX * 0.5; // Horizontal orbit
+        viewerObj.targetAngleX = 1.5 + mouseY * 0.3; // Vertical orbit (clamped)
+        viewerObj.targetAngleX = Math.max(1.0, Math.min(2.0, viewerObj.targetAngleX)); // Clamp vertical angle
+      }
+    });
+
+    canvas.addEventListener('mousedown', function() {
+      canvas.style.cursor = 'grabbing';
+    });
+
+    canvas.addEventListener('mouseup', function() {
+      if (viewerObj.isHovering) {
+        canvas.style.cursor = 'grab';
+      }
+    });
+    
+    splatViewers[sceneId] = viewerObj;
+  }
+
+  // Function to start/stop animation based on visibility
+  function toggleSplatViewer(sceneId, isVisible) {
+    const viewer = splatViewers[sceneId];
+    if (!viewer) return;
+
+    if (isVisible) {
+      viewer.startAnimation();
+    } else {
+      viewer.stopAnimation();
+    }
+  }
+
+  // Initialize viewers when their tab is first shown
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      const target = entry.target;
+      const isVisible = entry.isIntersecting;
+      
+      // Determine scene ID from target ID
+      let sceneId = '';
+      if (target.id.includes('indoor')) sceneId = 'indoor';
+      else if (target.id.includes('party')) sceneId = 'party';
+      else if (target.id.includes('patio')) sceneId = 'patio';
+      
+      if (sceneId && splatViewers[sceneId]) {
+        // Only toggle animation if splat viewer is active
+        const splatPane = document.getElementById(sceneId + '-splat-pane');
+        const isSplatActive = splatPane && splatPane.classList.contains('is-active');
+        
+        if (isSplatActive) {
+          toggleSplatViewer(sceneId, isVisible);
+        }
+        
+        // If scrolling away and not visible, switch back to video
+        if (!isVisible && isSplatActive) {
+            // Find the video tab button and click it to switch back
+            // This needs to be robust to finding the correct tab button
+            const viewerContent = target.closest('.scene-viewer-tabs');
+            if (viewerContent) {
+                const videoTabLink = viewerContent.querySelector('a[onclick*="\'video\'"]');
+                if (videoTabLink) {
+                    // Use the existing switchSceneViewer function via the onclick handler or direct call
+                    switchSceneViewer(sceneId, 'video', videoTabLink);
+                }
+            }
+        }
+      }
+    });
+  }, { threshold: 0.1 });
+
+  // Observe all splat pane containers for visibility
+  ['indoor-splat-pane', 'party-splat-pane', 'patio-splat-pane'].forEach(function(paneId) {
+    const pane = document.getElementById(paneId);
+    if (pane) {
+      observer.observe(pane);
+    }
+  });
+
+  // Also check on tab switch
+  const originalSwitchSceneViewer = window.switchSceneViewer;
+  window.switchSceneViewer = function(sceneId, viewType, buttonElement) {
+    originalSwitchSceneViewer(sceneId, viewType, buttonElement);
+    
+    // Initialize and start/stop animation based on view type
+    if (viewType === 'splat') {
+      setTimeout(function() {
+        if (sceneId === 'indoor' && !splatViewers.indoor) {
+          initSplatViewer('indoor', 'indoor-splat-canvas', 'indoor-splat-container');
+        } else if (sceneId === 'party' && !splatViewers.party) {
+          initSplatViewer('party', 'party-splat-canvas', 'party-splat-container');
+        } else if (sceneId === 'patio' && !splatViewers.patio) {
+          initSplatViewer('patio', 'patio-splat-canvas', 'patio-splat-container');
+        }
+        toggleSplatViewer(sceneId, true);
+      }, 100);
+    } else {
+      toggleSplatViewer(sceneId, false);
+    }
+  };
 </script>
 
   

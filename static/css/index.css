@@ -147,6 +147,27 @@ body {
   border-radius: 5px;
 }
 
+.interpolation-panel .column.is-7,
+.interpolation-panel .column.is-5 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.interpolation-panel .column.is-7 p,
+.interpolation-panel .column.is-5 .scene-viewer-tabs p {
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.interpolation-panel .column.is-7 img {
+  margin-bottom: 0;
+}
+
+.interpolation-panel .column.is-5 .scene-viewer-content {
+  margin-bottom: 0;
+}
+
 .interpolation-video-column {
 }
 
@@ -381,6 +402,97 @@ body {
   .magic-camera-tabs .tabs .icon {
     margin-right: 0.25rem;
   }
+}
+
+/* Scene Viewer Tabs (nested tabs for video/splat) */
+.scene-viewer-tabs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.scene-viewer-tabs p {
+  margin: 0.75rem 0 0.5rem 0;
+}
+
+.scene-viewer-tabs .tabs {
+  border-top: 1px solid #e8e8e8;
+  margin-top: 0.75rem;
+}
+
+.scene-viewer-tabs .tabs ul {
+  border-bottom: none;
+}
+
+.scene-viewer-tabs .tabs li a {
+  border-top: 2px solid transparent;
+  color: #666;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+  border-radius: 0 0 4px 4px;
+  background: rgba(255, 255, 255, 0.6);
+  margin-right: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.scene-viewer-tabs .tabs li a:hover {
+  background: rgba(255, 255, 255, 0.8);
+  color: #3273dc;
+  border-top-color: #3273dc;
+}
+
+.scene-viewer-tabs .tabs li.is-active a {
+  background: rgba(255, 255, 255, 0.95);
+  color: #3273dc;
+  border-top-color: #3273dc;
+  font-weight: 600;
+}
+
+.scene-viewer-content {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scene-viewer-pane {
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+  width: 100%;
+}
+
+.scene-viewer-pane.is-active {
+  display: block;
+}
+
+.scene-viewer-pane video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.scene-viewer-pane .splat-viewer-container {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.scene-viewer-pane .splat-viewer-container canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.splat-viewer-placeholder p {
+  margin: 0;
+  font-size: 1rem;
 }
 
 /* Design Goals Styles */
