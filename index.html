@@ -63,7 +63,7 @@
 
           <div class="is-size-5 publication-authors" style="margin-top: 0;">
             <span class="author-block">
-              <a href="https://cvachha.github.io">Cyrus Vachha</a><sup>1</sup>,</span>
+              <a href="https://cvachha.github.io/research-profile.html">Cyrus Vachha</a><sup>1</sup>,</span>
             <span class="author-block">
               <a href="https://www.linkedin.com/in/yixiao-kang">Yixiao Kang</a><sup>1</sup>,</span>
             <span class="author-block">
@@ -333,7 +333,7 @@
         <div class="content has-text-justified">
           <p>
            
-The Magic Camera allows users to position a virtual camera within a scene and apply stylization based on prompts using the ControlNet module, analogous to rendering a frame in 3D editors. This stylized output can be used as input for image-to-video or image-to-3D models, enabling an iterative design process for creating and editing 3D scenes in Dreamcrafter. The system serves as a tool for spatial prompting, allowing users to create, stage, and stylize scenes using low fidelity objects in a VR interface, and explore high fidelity 3D scene generation through video diffusion models. Dreamcrafter's capabilities could further enhance generative AI design systems for 2D, video, and 3D outputs for world building.
+The Magic Camera allows users to position a virtual camera within a scene and apply stylization based on prompts using the ControlNet module, analogous to rendering a frame in 3D editors. This stylized output can be used as input for image-to-video or image-to-3D models, enabling an iterative design process for creating and editing 3D scenes in Dreamcrafter. The system serves as a tool for spatial prompting, allowing users to create, stage, and stylize scenes using coarse low fidelity objects in a VR interface, and explore high fidelity 3D scene generation through video diffusion models. Dreamcrafter's capabilities could further enhance generative AI design systems for 2D, video, and 3D outputs for world building.
           </p>
         </div>
         
@@ -551,7 +551,7 @@ The Magic Camera allows users to position a virtual camera within a scene and ap
             <h3 class="title is-5 has-text-left">
               <span class="design-goal-number">1.</span>
               Focus on creating and editing radiance field objects in VR
-              <span class="design-goal-toggle" id="goal1-toggle">▼</span>
+              <span class="design-goal-toggle"><i class="fas fa-angle-down" id="goal1-toggle"></i></span>
             </h3>
           </div>
           <div class="design-goal-content" id="goal1-content">
@@ -579,7 +579,7 @@ The Magic Camera allows users to position a virtual camera within a scene and ap
             <h3 class="title is-5 has-text-left">
               <span class="design-goal-number">2.</span>
               Enable both direct manipulation and instruction-based editing
-              <span class="design-goal-toggle" id="goal2-toggle">▼</span>
+              <span class="design-goal-toggle"><i class="fas fa-angle-down" id="goal2-toggle"></i></span>
             </h3>
           </div>
           <div class="design-goal-content" id="goal2-content">
@@ -587,7 +587,7 @@ The Magic Camera allows users to position a virtual camera within a scene and ap
               <div class="column is-8">
                 <div class="content has-text-justified">
                   <p>
-                    The system combines low-level direct manipulation with high-level instruction-based editing, giving users flexibility in control. Fine-grained operations such as positioning or resizing can be performed directly in VR in addition to crafting the general shape of an object to guide generation, while larger stylistic or structural edits can be expressed through natural language prompts.
+                    The system combines low-level direct manipulation with high-level instruction-based editing, giving users flexibility in control. Fine-grained operations such as positioning or resizing can be performed directly in VR in addition to crafting the general shape of an object to guide generation, while larger stylistic or structural edits can be expressed through natural language prompts aided by scene context aware VLMs. We support interactions that transform low fidelity inputs into high fidelity outputs from generative priors.
                   </p>
                 </div>
               </div>
@@ -607,7 +607,7 @@ The Magic Camera allows users to position a virtual camera within a scene and ap
             <h3 class="title is-5 has-text-left">
               <span class="design-goal-number">3.</span>
               Modular architecture to allow integration of future generative models
-              <span class="design-goal-toggle" id="goal3-toggle">▼</span>
+              <span class="design-goal-toggle"><i class="fas fa-angle-down" id="goal3-toggle"></i></span>
             </h3>
           </div>
           <div class="design-goal-content" id="goal3-content">
@@ -635,7 +635,7 @@ The Magic Camera allows users to position a virtual camera within a scene and ap
             <h3 class="title is-5 has-text-left">
               <span class="design-goal-number">4.</span>
               Preserve real-time interaction for high latency editing operations
-              <span class="design-goal-toggle" id="goal4-toggle">▼</span>
+              <span class="design-goal-toggle"><i class="fas fa-angle-down" id="goal4-toggle"></i></span>
             </h3>
           </div>
           <div class="design-goal-content" id="goal4-content">
@@ -824,12 +824,22 @@ function toggleDesignGoal(goalId) {
   
   if (goalItem.classList.contains('expanded')) {
     // Collapse
+    goalItem.classList.remove('overflow-visible');
     goalItem.classList.remove('expanded');
-    toggle.innerHTML = '▼';
+    toggle.classList.remove('fa-angle-up');
+    toggle.classList.add('fa-angle-down');
   } else {
     // Expand
     goalItem.classList.add('expanded');
-    toggle.innerHTML = '▲';
+    toggle.classList.remove('fa-angle-down');
+    toggle.classList.add('fa-angle-up');
+    
+    // Wait for transition to finish before allowing overflow
+    setTimeout(function() {
+      if (goalItem.classList.contains('expanded')) {
+        goalItem.classList.add('overflow-visible');
+      }
+    }, 400);
   }
 }
 </script>

@@ -577,11 +577,23 @@ body {
   max-height: 130px;
   border: 1px solid #e8e8e8;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease-out;
+  transform-origin: center left;
+  position: relative;
+  z-index: 1;
+  background-color: white;
+  cursor: default;
 }
 
 .design-goal-image:hover {
-  transform: scale(1.02);
+  transform: scale(2.5);
+  z-index: 100;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.design-goal-item.overflow-visible,
+.design-goal-item.overflow-visible .design-goal-content {
+  overflow: visible;
 }
 
 /* Responsive adjustments for design goals */
